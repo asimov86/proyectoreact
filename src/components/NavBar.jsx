@@ -1,5 +1,6 @@
 import React from "react";
 import {Navbar,Nav,Container,NavDropdown} from 'react-bootstrap'; //Importo lo necesario del menu de bootstrap y abajo agrego el menu
+import CartWidget from "./CartWidget";
 
 export default function NavBar(){
     return(
@@ -17,14 +18,15 @@ export default function NavBar(){
                     <NavDropdown title="Entrega" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Rappi</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Pedidos Ya</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Bueguenator</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Burguenator</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Cliente</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
-                </Navbar.Collapse>
+                <CartWidget/>
+                </Navbar.Collapse>   
             </Container>
         </Navbar>
-        </>
+        </>    
     )
 }
