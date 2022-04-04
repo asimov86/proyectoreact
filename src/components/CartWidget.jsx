@@ -4,7 +4,7 @@ import Carrito from "./shopping-cart.png";
 export default function CartWidget(){
     return(
        <>
-               <img src={Carrito} alt="carrito"></img>
+            <img src={Carrito} alt="carrito"></img>
        </>
     )
 }

@@ -1,26 +1,28 @@
 import React from "react";
-import {Container,Row, Col} from 'react-bootstrap';
+import ItemCount from "./ItemCount";
 
-export default function ItemListContainer({nombre, apellido, sexo}){
+export default function ItemListContainer(){
 
-    let nombreCompleto = nombre + " " + apellido;
-    let saludoF = "¡Bienvenida";
-    let saludo = "¡Bienvenido";
-    if(sexo==="F"){saludo=saludoF}
+    let from = 0;
+    let stock = 10;
+   
+
+    function onAdd(quantity){
+        if(quantity===0){
+            alert("Debes agregar un producto a tu carro.");
+        }else{
+            alert( "Has agregado " + quantity + " producto a tu carro.");
+        }
+    }
+    
+
     return(
        <>
-            <Container>
-                <Row>
-                    <Col></Col>
-                    <Col xs={6}></Col>
-                    <Col><p>{saludo} {nombreCompleto}!</p></Col>
-                </Row>
-                <Row>
-                    <Col></Col>
-                    <Col xs={5}></Col>
-                    <Col></Col>
-                </Row>
-            </Container>
+            <br/>
+            <div>
+                <ItemCount onAdd={onAdd} from={from} stock={stock}/>
+            </div>
+            
             
        </>
     )
