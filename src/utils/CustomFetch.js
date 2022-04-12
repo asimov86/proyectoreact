@@ -6,7 +6,7 @@ const customFetch = (time, task) => {
         setTimeout(() => {
             if(isOk){
                 resolve(task);
-               //console.log("isOk");
+               console.log("isOk");
             }else{
                 reject('Error')
             }
