@@ -14,7 +14,6 @@ export default function ItemListContainer(){
       .then(result => setItems(result))
       .catch(error => console.log(error));
   }, [])
-
 return (
   <>
     <Container>

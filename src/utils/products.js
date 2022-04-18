@@ -51,19 +51,15 @@ const items = [
 
 ];
 
-const item = [
-
-    {   id: 1,
+const item = {
+        id: 1,
         name: "Hamburguesa Simple",
         type: "Alimento",
         price: 980,
         stock: 85,
-        description: "Hamburguesa",
-        image: "https://i0.wp.com/www.opportimes.com/wp-content/uploads/2016/04/haburguesa-dos.png?resize=500%2C387&ssl=1",
-    } 
-    
-    
-];
+        description: "Hamburguesa simple con queso, tomate, cebolla, lechuga, pepinillos y papas fritas.",
+        image: "https://i0.wp.com/www.opportimes.com/wp-content/uploads/2016/04/haburguesa-dos.png?resize=500%2C387&ssl=1"
+    };
     
 export const getItem = () => {
     return new Promise((resolve, reject) => {

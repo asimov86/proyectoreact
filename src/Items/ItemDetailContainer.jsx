@@ -2,19 +2,21 @@ import React, {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import { getItem } from "../utils/products";
 
-const ItemDetailContainer = () =>{
-
-  const [item, setItem] = useState({});
+const ItemDetailContainer = () => {
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
-    getItem().then((res) => setItem(res));
-}, []);
-console.log(item);
-return (
-  <>
-    <ItemDetail product={item} />
-  </>
-    );
+    getItem().then((res) => {
+      setProduct(res);
+    });
+  }, []);
+  console.log(product);
+  return(
+    <>
+      <ItemDetail product={product} />
+           
+    </>
+  );
 };
 
 export default ItemDetailContainer;
