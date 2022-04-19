@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import {Button, ButtonGroup, Stack} from "react-bootstrap";
 import s from "./ItemCount.module.css";
 import { Link } from "react-router-dom";
-export default function ItemCount({stock}){
 
-    const [quantity, setQuantity] = useState(0);
+
+export default function ItemCount({stock, initial, onAdd}){
+
+    const [quantity, setQuantity] = useState(initial);
     
     function increase(){
         if(quantity>=stock){
@@ -22,15 +24,7 @@ export default function ItemCount({stock}){
         }
         
     }
-
-    function onAdd(){
-        if(quantity===0){
-            alert("Debes agregar un producto a tu carro.");
-        }else{
-            alert( "Has agregado " + quantity + " producto a tu carro.");
-        }
-    }
-
+    console.log(quantity);
     return(
        <>
             <div>
@@ -42,7 +36,10 @@ export default function ItemCount({stock}){
                 <br/>
                 <br/>
                 <Stack gap={3}>
-                    <Button variant="primary" onClick={onAdd}>Agregar al carro</Button>
+
+
+
+                    <Button variant="primary" onClick={() => onAdd(quantity)}>Agregar al carro</Button>
                     <Button variant="outline-secondary"><Link to="/" style={{ textDecoration: 'none', color: 'Black' }}>Volver</Link></Button>
                 </Stack>
             </div>

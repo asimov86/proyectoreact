@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemCount from "../components/ItemCount/ItemCount";
-import { Card} from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({product}) => {
     
+    const[number, setNumber] = useState(0);
+
+    const onAdd = (quantity) =>{
+        if(quantity===0){
+            alert("Debes agregar un producto a tu carro.");
+        }else{
+            alert( "Has agregado " + quantity + " producto a tu carro.");
+            setNumber(quantity);
+        }
+    }
+    console.log(number);
     return (
         <>
             <Card key={product.id} style={{ width: '18rem' }}>
@@ -13,10 +25,17 @@ const ItemDetail = ({product}) => {
                 <Card.Text>
                 <p>Descripción: {product.description} </p>
                 <p>Precio: {product.price} $</p>
-                <p>Tipo: {product.type}</p>
+                <p>Producto tipo: {product.category}</p>
+                {
+                    number >= 1 ? (<p>Cantidad: {number} de {product.stock} </p>) : (<p>Cantidad: 1 de {product.stock} </p>)
+                }
                 </Card.Text>
-                <ItemCount stock={product.stock} />         
-                <br/>    
+                {
+                    number >= 1 ? (<Button variant="outline-primary"><Link to={`/cart/${number}`} style={{ textDecoration: 'none'} }>Comprar</Link></Button>) : (<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />)
+                }
+                {/* Cómo pasarle a Cart.jsx el id, price, number, tipo de producto? */}      
+                
+                <br/> 
             </Card.Body>
             </Card>
 
