@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import {Button, ButtonGroup } from "react-bootstrap";
+import {Button, ButtonGroup, Stack} from "react-bootstrap";
 import s from "./ItemCount.module.css";
-
-
+import { Link } from "react-router-dom";
 export default function ItemCount({stock}){
 
     const [quantity, setQuantity] = useState(0);
     
     function increase(){
         if(quantity>=stock){
-            alert("No hay más stock disponible.") 
+            //alert("No hay más stock disponible.") 
+            //Agregué la deshabilitación del botón que incrementa el contador de productos seleccionados.
         }else{
             setQuantity(quantity + 1);
         }
@@ -35,13 +35,16 @@ export default function ItemCount({stock}){
        <>
             <div>
                 <ButtonGroup aria-label="Basic example">
-                    <Button className={s.buttons} variant="outline-danger" onClick={decrease}>-</Button>
+                    <Button className={s.buttons} variant="outline-danger"  onClick={decrease}>-</Button>
                         <p className={s.quantity}>{quantity}</p>
-                    <Button className={s.buttons} variant="outline-primary" onClick={increase}>+</Button>
+                    <Button className={s.buttons} variant="outline-primary" disabled={quantity===stock} onClick={increase}>+</Button>
                 </ButtonGroup>
                 <br/>
                 <br/>
-                <Button onClick={onAdd} variant="outline-secondary" >Agregar al carro</Button>
+                <Stack gap={3}>
+                    <Button variant="primary" onClick={onAdd}>Agregar al carro</Button>
+                    <Button variant="outline-secondary"><Link to="/" style={{ textDecoration: 'none', color: 'Black' }}>Volver</Link></Button>
+                </Stack>
             </div>
          
        </>

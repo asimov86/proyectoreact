@@ -1,31 +1,25 @@
 import React from "react";
-import { Card} from "react-bootstrap";
-import ItemCount from "../components/ItemCount/ItemCount";
+import { Card, Button} from "react-bootstrap";
+//import ItemCount from "../components/ItemCount/ItemCount";
+import { Link } from 'react-router-dom';
 
-
-export default function Item({id, name, type, price, stock, image}){
+export default function Item({item}){
 
     //let from = 1;
     //let stock = 12;
 
     return(
        <>
-            <Card key={id} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={image} />
+            <Card key={item.id} style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={item.image} />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title>{item.name}</Card.Title>
                 <Card.Text>
-                <br/>
-                
-                <br/>
-                <p>Precio: {price} $</p>
-                <p>Tipo: {type}</p>
+                <p>Precio: {item.price} $</p>
+                <p>Descripción: {item.description}</p>
                 </Card.Text>
-                <ItemCount stock={stock}/>
-                
-                <br/>
-                <br/>
-                
+                {/* {<Link to={`/item/${item.id}`}>Ver detalle</Link>} */}
+                <Button variant="primary"><Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'White' }}>Ver detalle</Link></Button>
             </Card.Body>
             </Card>
        </>

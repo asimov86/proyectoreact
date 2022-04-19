@@ -3,7 +3,8 @@ import {Card} from "react-bootstrap";
 
 export default function Footer(){
     return(
-        <Card.Footer className="t-4">
+
+        <Card.Footer className=" mt-5" fixed="bottom">
             <small className="text-muted">©</small>
         </Card.Footer>
     )

@@ -8,11 +8,7 @@ export default function ItemList({items}){
                     {/**Agregp acá Col para que me coloque cada producto en una columna */}
                     <Item 
                         key={p.id} 
-                        name={p.name} 
-                        type={p.type}
-                        price={p.price} 
-                        stock={p.stock}
-                        image={p.image}/>
+                        item={p} />
                 </Col> 
             ))
     )

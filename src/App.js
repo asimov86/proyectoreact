@@ -3,14 +3,9 @@ import NavBar from "./components/NavBar";//Traigo el componente y abajo lo muest
 import Footer from "./components/Footer";
 import ItemListContainer from "./Items/ItemListContainer";
 import ItemDetailContainer from "./Items/ItemDetailContainer";
-//import TestContainer from "./components/test/TestContainer";
-//import ItemDetailContainer from "./Items/ItemDetailContainer";
 //Ruta
-//import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
-
-//import TestContainer from "./components/test/TestContainer";
 
 export default function App() {
 
@@ -24,17 +19,17 @@ export default function App() {
         <Route exact path="/category/:type" element={<TestContainer />} />
         <Route exact path="/item/:type" element={<ItemListContainer/>}/>
       </Routes>
-     */}
     
-    <NavBar/>
-    <ItemDetailContainer/>
-    <ItemListContainer/>
-    <Footer/>
-    
-    
-    {/*</BrowserRouter>*/}
-
-
+     {</BrowserRouter>*/}
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route exact path="/" element={<ItemListContainer />} />
+        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+        <Route exact path="/category/:categoryId" element={<ItemListContainer />} />
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
 
       {/*
       <NavBar/>
