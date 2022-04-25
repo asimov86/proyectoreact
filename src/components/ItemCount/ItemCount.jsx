@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Button, ButtonGroup, Stack} from "react-bootstrap";
 import s from "./ItemCount.module.css";
 import { Link } from "react-router-dom";
 
+export default function ItemCount({stock, initial, onAdd, product}){
 
-export default function ItemCount({stock, initial, onAdd}){
-
+    
     const [quantity, setQuantity] = useState(initial);
     
     function increase(){
@@ -40,6 +40,7 @@ export default function ItemCount({stock, initial, onAdd}){
 
 
                     <Button variant="primary" onClick={() => onAdd(quantity)}>Agregar al carro</Button>
+                    
                     <Button variant="outline-secondary"><Link to="/" style={{ textDecoration: 'none', color: 'Black' }}>Volver</Link></Button>
                 </Stack>
             </div>
