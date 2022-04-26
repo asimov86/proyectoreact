@@ -15,10 +15,9 @@ export default function Item({item}){
             <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>
-                Precio: {item.price} $
-                Descripción: {item.description}
+                    <p>Precio: $ {item.price}</p>
+                    <p>Descripción: {item.description}</p>
                 </Card.Text>
-                {/* {<Link to={`/item/${item.id}`}>Ver detalle</Link>} */}
                 <Button variant="primary"><Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'White' }}>Ver detalle</Link></Button>
             </Card.Body>
             </Card>

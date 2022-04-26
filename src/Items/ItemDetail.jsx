@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
 import ItemCount from "../components/ItemCount/ItemCount";
-import { Card, Button} from "react-bootstrap";
+import { Card, Button, Stack} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../src/Context/CartContext";
 
-
 const ItemDetail = ({product}) => {
-let {cart, dropCart, addProduct, removeProduct} = useContext(CartContext);
+let {cart, addProduct} = useContext(CartContext);
 
     console.log("cart ItemDetail");
     console.log(cart);
@@ -16,7 +15,7 @@ let {cart, dropCart, addProduct, removeProduct} = useContext(CartContext);
         if(quantity===0){
             alert("Debes agregar un producto a tu carro.");
         }else{
-            alert( "Has agregado " + quantity + " producto a tu carro.");
+            // alert( "Has agregado " + quantity + " producto a tu carro.");
             setNumber(quantity);
             addProduct({...product, quantity: quantity});//Le agrego la cantidad al producto que compré y lo guardo en el carrito.
         }
@@ -39,15 +38,19 @@ let {cart, dropCart, addProduct, removeProduct} = useContext(CartContext);
                 {
                     /* number >= 1 ? (<Link to={`/cart/${number}`}><Button variant="outline-primary" onClick={()=>{addCart()}} >Comprar</Button></Link> ) : (<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />) */
                     number >= 1 ? 
-                    (<div className="mt-5">
-                        <Link to={`/cart`}>
-                        <Button variant="outline-primary" >Comprar</Button>
-                        <Button variant="outline-danger" onClick={() => dropCart()}>Vaciar carro</Button>
-                        </Link>
-                        <Link to='/'>
-                        <Button variant="outline-info">Continuar Comprando</Button>
-                        </Link>
-                    </div>)
+
+                    ( 
+                        <div className="text-center align-items-center">
+                            <Stack gap={3}>
+                                <Link to={`/cart`}>
+                                    <Button variant="primary">Ver carro de compras</Button>
+                                </Link>
+                                <Link to='/'>
+                                    <Button variant="outline-secondary">Continuar la compra</Button>
+                                </Link>
+                            </Stack>
+                        </div>
+                    )
                     :
                     (<ItemCount stock={product.stock} initial={1} onAdd={onAdd} product={product} /> )
                 }  

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import {Button, ButtonGroup, Stack} from "react-bootstrap";
 import s from "./ItemCount.module.css";
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ export default function ItemCount({stock, initial, onAdd, product}){
     console.log(quantity);
     return(
        <>
-            <div>
+            <div className="text-center align-items-center">
                 <ButtonGroup aria-label="Basic example">
                     <Button className={s.buttons} variant="outline-danger"  onClick={decrease}>-</Button>
                         <p className={s.quantity}>{quantity}</p>
@@ -36,9 +36,6 @@ export default function ItemCount({stock, initial, onAdd, product}){
                 <br/>
                 <br/>
                 <Stack gap={3}>
-
-
-
                     <Button variant="primary" onClick={() => onAdd(quantity)}>Agregar al carro</Button>
                     
                     <Button variant="outline-secondary"><Link to="/" style={{ textDecoration: 'none', color: 'Black' }}>Volver</Link></Button>

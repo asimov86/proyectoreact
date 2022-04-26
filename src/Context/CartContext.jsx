@@ -16,10 +16,15 @@ export default function CartContextProvider({ children }) {
         setCart([]);
       }
 
+      function totalAmount(){
+        return cart.reduce((prevItem, nextItem) => prevItem + (nextItem.price * nextItem.quantity), 0)
+      }
+
+
       function removeProduct(id){
           console.log("removeProductId")
           console.log(id);
-        return cart.some( product => product.id === id )//Acá tengo problemas. No elimina producto por id
+          setCart(cart.filter((product) => product.id !== id));
       }
     
       function addProduct(product){
@@ -40,6 +45,6 @@ export default function CartContextProvider({ children }) {
         return cart.some( producto => producto.id === id )
     }
     return (
-        <CartContext.Provider value={{cart, setCart, dropCart, addProduct, removeProduct}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{cart, setCart, dropCart, addProduct, removeProduct, totalAmount}}>{children}</CartContext.Provider>
     )
 };
