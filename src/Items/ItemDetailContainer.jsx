@@ -6,6 +6,7 @@ import { Row, Stack } from "react-bootstrap";
 import Loading from "../utils/Loading";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./../App.css";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -14,7 +15,19 @@ const ItemDetailContainer = () => {
 
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
+    const db = getFirestore()
+    const queryDoc = doc(db, 'product' , id)
+    getDoc(queryDoc)
+    .then(resp => setProduct( {id:resp.id, ...resp.data()}))
+    .catch(error => console.log(error))
+    .finally(() => setLoading(false))
+
+}, [id])
+console.log(id)
+console.log(product)
+/*   useEffect(() => {
     setLoading(true);
     getItem(id)
       .then((res) => {
@@ -27,7 +40,7 @@ const ItemDetailContainer = () => {
       .finally(()=>{
         setLoading(false);
       });
-  }, [id]);
+  }, [id]); */
 
   return(
     <>

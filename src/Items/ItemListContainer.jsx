@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import Loading from "../utils/Loading";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./../App.css";
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
+
 export default function ItemListContainer(){
 
   const [items, setItems] = useState([]);
@@ -13,8 +15,23 @@ export default function ItemListContainer(){
   const [loading, setLoading] = useState(true);
 
   const { categoryId } = useParams();
-  //console.log('Hamburguesa o bebida: ', categoryId);
+
+
   useEffect(() => {
+    const db = getFirestore()
+    const queryCollection =  collection(db, 'products')
+    const filterQuery = categoryId ? query(queryCollection, where('category', '==', categoryId)) : queryCollection
+    getDocs(filterQuery)
+    .then(response => setItems(response.docs.map( item => ({ id: item.id, ...item.data() }) )))
+    .catch(error => console.log(error))
+    .finally(() => setLoading(false))
+  
+  },[categoryId]) 
+
+  
+
+  //console.log('Hamburguesa o bebida: ', categoryId);
+/*   useEffect(() => {
       setLoading(true);
       getItems(categoryId)
       .then(result => setItems(result))
@@ -22,7 +39,7 @@ export default function ItemListContainer(){
       .finally(()=>{
         setLoading(false);
       });
-  }, [categoryId]);
+  }, [categoryId]); */
 //console.log(items);
 return (
   <>

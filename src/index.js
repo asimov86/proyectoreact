@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'; //Agregué el estilo de Bootstrap
+import { getFirestoreApp } from './firebase/config';
+
+getFirestoreApp()
 
 ReactDOM.render(
   <React.StrictMode>
