@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
-import { getItem } from "../utils/products";
 import { useParams } from "react-router-dom";
 import { Row, Stack } from "react-bootstrap";
 import Loading from "../utils/Loading";
@@ -18,9 +17,9 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const db = getFirestore()
-    const queryDoc = doc(db, 'product' , id)
+    const queryDoc = doc(db, 'products', id)
     getDoc(queryDoc)
-    .then(resp => setProduct( {id:resp.id, ...resp.data()}))
+    .then(resp => setProduct( {...resp.data(), id:resp.id}))
     .catch(error => console.log(error))
     .finally(() => setLoading(false))
 
@@ -52,9 +51,7 @@ console.log(product)
         </Row>
         <Row md={3} className="justify-content-md-center ">
         </Row>
-      </Stack>
-      
-           
+      </Stack>  
     </>
   );
 };
