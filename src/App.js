@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";//Traigo el componente y abajo lo muest
 import Footer from "./components/Footer/Footer";
 import ItemListContainer from "./Items/ItemListContainer";
 import ItemDetailContainer from "./Items/ItemDetailContainer";
-
 //Ruta
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContextProvider from "./Context/CartContext";

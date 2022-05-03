@@ -16,8 +16,13 @@ export default function CartContextProvider({ children }) {
         setCart([]);
       }
 
+      const [toPay, setToPay] = useState();
+
       function totalAmount(){
-        return cart.reduce((prevItem, nextItem) => prevItem + (nextItem.price * nextItem.quantity), 0)
+        setToPay(
+          cart.reduce((prevItem, nextItem) => prevItem + (nextItem.price * nextItem.quantity), 0)
+        );
+        return toPay
       }
 
 

@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {BsCart4} from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
+import { Link } from "react-router-dom";
 import { CartContext} from "../Context/CartContext";
 
 export default function CartWidget(){
@@ -16,7 +17,7 @@ export default function CartWidget(){
        <>
        <IconContext.Provider value={{ color: "black", className: "global-class-name", size:"2em"}}>
         <div>
-            <BsCart4/> {(cart.length>=1) && (totalProducts())}
+            <Link to="/cart/" style={{ color: 'inherit', textDecoration: 'inherit'}}><BsCart4/> {(cart.length>=1) && (totalProducts())}</Link>
         </div>
         </IconContext.Provider>
        </>

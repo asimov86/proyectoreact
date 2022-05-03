@@ -28,9 +28,9 @@ let {cart, addProduct} = useContext(CartContext);
             <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
-                Descripción: {product.description}
-                Precio: {product.price} $
-                Producto tipo: {product.category}
+                <p>Descripción: {product.description}</p>
+                <p>Precio: {product.price} $</p>
+                <p>Producto tipo: {product.category}</p>
                 {
                     number >= 1 ? (<p>Cantidad: {number} de {product.stock} </p>) : (<p>Cantidad: 1 de {product.stock} </p>)
                 }
