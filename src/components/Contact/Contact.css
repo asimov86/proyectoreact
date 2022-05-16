@@ -1,0 +1,15 @@
+.contact-container {
+  min-height: 70vh;
+  position: relative;
+}
+
+.contact-center {
+  margin: 0;
+  position: absolute;
+  top: 65%;
+  left: 100%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+}
+  

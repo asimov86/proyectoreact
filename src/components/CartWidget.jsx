@@ -8,11 +8,9 @@ export default function CartWidget(){
     let {cart} = useContext(CartContext);
     function totalProducts(){
         const totalProducts = cart.reduce((prevItem, nextItem) => prevItem + (nextItem.quantity), 0);
-        console.log(totalProducts);
         return totalProducts;
       }
-    console.log("cartWidget");
-    console.log(cart);
+
     return(
        <>
        <IconContext.Provider value={{ color: "black", className: "global-class-name", size:"2em"}}>

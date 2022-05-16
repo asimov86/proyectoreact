@@ -1,0 +1,15 @@
+
+ .ItemListContainer-container {
+  min-height: 70vh;
+  position:relative;
+}
+
+.ItemListContainer-center {
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+}

@@ -7,7 +7,7 @@ import { BiSad, BiHappyAlt } from "react-icons/bi";
 import { serverTimestamp } from 'firebase/firestore';
 import { useForm } from 'react-hook-form';
 import { addDoc, getFirestore, collection, doc, updateDoc } from 'firebase/firestore';
-
+import "./Cart.css";
 
 export default function Cart() {
 
@@ -28,11 +28,7 @@ export default function Cart() {
     let order = {};
 
     const onSubmit = (data, e) => {
-        
-
-        
         e.preventDefault();
-        console.log(data);
         order.buyer = {name: name, surname: surname, email: email, phone: phone};
         order.items = cart.map( prod => {
             const id = prod.id
@@ -42,8 +38,6 @@ export default function Cart() {
           } );
         order.date = serverTimestamp();
         order.total = totalAmount();
-
-        console.log(order);
     
         const db = getFirestore()
         const queryCollection = collection(db, 'orders')
@@ -68,12 +62,12 @@ export default function Cart() {
 
 
   return (
-      <Container>
+      <Container className='cart-container'>
         
             {
                 (cart.length === 0 && orderFinished === 0)
                 &&
-                <div className='vh-100 row m-0 text-center align-items-center'>
+                <div className='cart-center row m-0 text-center align-items-center'>
                     <div>
                         <p>No hay items en tu carrito...</p>
                         <p><BiSad size="60px"/></p>
@@ -87,7 +81,7 @@ export default function Cart() {
 {
             (cart.length === 0 && orderFinished === 1)
                 &&
-                <div className='vh-100 row m-0 text-center align-items-center'>
+                <div className='cart-center row m-0 text-center align-items-center'>
                     <div>
                         <p>Excelente compra, que la disfrutes!</p>
                         <p><BiHappyAlt size="60px"/></p>
@@ -102,13 +96,13 @@ export default function Cart() {
                 (cart.length >= 1)
             
             &&
-            <div className='vh-100 row m-0 align-items-center'>
+            <div className='cart-center row m-0 align-items-center'>
             <div>
                 <h5>Su orden es:</h5>
                 <Table striped bordered hover responsive="sm" className='mt-5'>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {/* <th>ID</th> */}
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio por producto en pesos ($)</th>
@@ -120,7 +114,7 @@ export default function Cart() {
                     <tbody>
                     { cart.map(prod =>
                         <tr  key={prod.id}>
-                        <td>{prod.id}</td>
+                        {/* <td>{prod.id}</td> */}
                         <td>{prod.name}</td>
                         <td>{prod.quantity}</td>
                         <td>{prod.price}</td>
@@ -129,9 +123,8 @@ export default function Cart() {
                         </tr>
                     )}
                         <tr>
-                        <td colSpan={4}>Total a pagar:</td>
-                        <td >{totalAmount()}</td>
-                        <td ></td>
+                        <td colSpan={3}><b>Total a pagar:</b></td>
+                        <td ><b>{totalAmount()}</b></td>
                         </tr>
                     </tbody>
                 </Table>

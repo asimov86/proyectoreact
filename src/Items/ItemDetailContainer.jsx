@@ -24,23 +24,6 @@ const ItemDetailContainer = () => {
     .finally(() => setLoading(false))
 
 }, [id])
-console.log(id)
-console.log(product)
-/*   useEffect(() => {
-    setLoading(true);
-    getItem(id)
-      .then((res) => {
-        setProduct(res);
-
-      })
-      .catch((error) => {
-      console.log(error);
-      })
-      .finally(()=>{
-        setLoading(false);
-      });
-  }, [id]); */
-
   return(
     <>
       <Stack gap={5}>

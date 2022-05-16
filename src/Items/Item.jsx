@@ -1,12 +1,8 @@
 import React from "react";
 import { Card, Button} from "react-bootstrap";
-//import ItemCount from "../components/ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 
 export default function Item({item}){
-
-    //let from = 1;
-    //let stock = 12;
 
     return(
        <>
@@ -18,7 +14,10 @@ export default function Item({item}){
                     <p>Precio: $ {item.price}</p>
                     <p>Descripción: {item.description}</p>
                 </Card.Text>
-                <Button variant="primary"><Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'White' }}>Ver detalle</Link></Button>
+                {
+                    item.stock > 0 ? (<Button variant="primary"><Link to={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'White' }}>Ver detalle</Link></Button>) : (<b>Este producto no tiene stock. Disculpe las molestias ocasionadas.</b>)
+                }
+                
             </Card.Body>
             </Card>
        </>

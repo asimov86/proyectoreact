@@ -3,14 +3,8 @@ import React, {useState, createContext} from 'react';
 export const CartContext = createContext();
 
 export default function CartContextProvider({ children }) {
-    /* const [cart, setCart]=useState([
-        {id:1, name:"pepsi"},
-        {id:2, name:"Hamburguesa simple"},
-      ]); */
     
       const [cart, setCart]=useState([]);
-      console.log("cart");
-      console.log(cart);
 
       function dropCart(){
         setCart([]);
@@ -27,8 +21,6 @@ export default function CartContextProvider({ children }) {
 
 
       function removeProduct(id){
-          console.log("removeProductId")
-          console.log(id);
           setCart(cart.filter((product) => product.id !== id));
       }
     

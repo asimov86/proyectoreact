@@ -24,7 +24,6 @@ export default function ItemCount({stock, initial, onAdd, product}){
         }
         
     }
-    console.log(quantity);
     return(
        <>
             <div className="text-center align-items-center">

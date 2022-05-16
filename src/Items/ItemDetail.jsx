@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../src/Context/CartContext";
 
 const ItemDetail = ({product}) => {
-let {cart, addProduct} = useContext(CartContext);
+let {addProduct} = useContext(CartContext);
 
-    console.log("cart ItemDetail");
-    console.log(cart);
     const[number, setNumber] = useState(0);
 
     const onAdd = (quantity) =>{
@@ -20,7 +18,6 @@ let {cart, addProduct} = useContext(CartContext);
             addProduct({...product, quantity: quantity});//Le agrego la cantidad al producto que compré y lo guardo en el carrito.
         }
     }
-    console.log(number);
     return (
         <>
             <Card key={product.id} style={{ width: '18rem' }}>
@@ -36,7 +33,6 @@ let {cart, addProduct} = useContext(CartContext);
                 }
                 </Card.Text>
                 {
-                    /* number >= 1 ? (<Link to={`/cart/${number}`}><Button variant="outline-primary" onClick={()=>{addCart()}} >Comprar</Button></Link> ) : (<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />) */
                     number >= 1 ? 
 
                     ( 
