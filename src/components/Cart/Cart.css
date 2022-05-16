@@ -1,21 +1,9 @@
 .cart-container {
-    min-height: 90vh;
+    min-height: 100vh;
     position: relative;
   }
   
   .cart-center {
-    width: 100%;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-  
-
-  .cart-center-empty {
     width: 100%;
     margin: 0;
     position: absolute;
