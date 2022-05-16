@@ -1,73 +1,59 @@
-# Getting Started with Create React App
+# Burguenator
+## _Ecommerce para comida rápida_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![N|Solid](https://github.com/asimov86/proyectoreact/blob/main/public/favicon_react.ico)](https://reactjs.org/)
 
-## Available Scripts
 
-In the project directory, you can run:
+Burguenator es el proyecto de final de la carrera de Desarrollo FrontEnd con React que brinda CoderHouse. Está pensado para ser un ecommerce de comida rápida, especificamente un sitio de ventas de hamburguesas. Fue creado con la librería de JavaScript, React versión 17.0.2.
 
-### `npm start`
+## Dependencias:
+- React-bootstrap versión 2.2.2
+- React-hook-form versión 7.30.0
+- React-icons versión 4.3.1
+- React-router-dom versión 6.3.0
+- Firebase versión 9.6.11
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Características
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Realizar fácilmente la carga de los productos desde Firebase.
+- Permite llevar el control del stock de cada producto, al actualizar el stock de manera automática luego de cada venta.
+- Genera la orden de compra, identificando el cliente, los productos, la fecha de compra y el precio total.
+- Permite filtrar por categoría de producto, haciendo más fácil la navegabilidad al usuario si se disponen de gran cantidad de productos.
+- Tiene la opción de registrar la opinión del usuario en un formulario, este formulario se guarda en la colección FormContact en Firebase para su posterior análisis y así mejorar en aquellos puntos que el cliente percibe que se puede mejorar.
 
-### `npm test`
+## Deploy
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El deploy se hizo en Firebase por ello recomiendo hacer lo siguiente:
 
-### `npm run build`
+- Instalar la CLI de Firebase Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install -g firebase-tools
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Para el primer deploy realizar
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+firebase login
+firebase init
+```
 
-### `npm run eject`
+> Note: Sin olvidar de usar build como public directory la primera vez.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Para crear el build local con:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+npm run build
+firebase deploy
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Para clonar este repositorio.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+git clone
+npm install
+npm start
+```
 
 
 ![image](https://github.com/asimov86/proyectoreact/blob/main/src/img/demo_proyecto_react.gif)
